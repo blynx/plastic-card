@@ -1,0 +1,13 @@
+{
+  "name": "plastic-card",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "npx donny -p 3030 .",
+    "fmt": "npx dprint fmt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,13 +1,12 @@
 {
   "name": "plastic-card",
   "version": "1.0.0",
-  "description": "",
+  "description": "A plastic card and its pocket",
   "main": "index.js",
   "scripts": {
     "serve": "npx donny -p 3030 .",
     "fmt": "npx dprint fmt"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["web component", "custom element", "credit card", "card", "wallet", "pocket"],
+  "author": "Steffen Henschel"
 }

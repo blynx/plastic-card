@@ -18,6 +18,11 @@
 		  padding: 0;
 		}
 
+		.stack {
+		  display: flex;
+		  flex-direction: column;
+		}
+
 		#credit-card {
 		  width: 500px;
 		  height: 100%;
@@ -26,10 +31,22 @@
 		</style>
 	</head>
 	<body>
-		<card-pocket>
-			<plastic-card slot="pocket">
-				<div slot="card-front" id="credit-card"></div>
-			</plastic-card>
-		</card-pocket>
+		<div class="stack">
+			<card-pocket peek>
+				<plastic-card slot="pocket">
+					<div slot="card-front" id="credit-card"></div>
+				</plastic-card>
+			</card-pocket>
+			<card-pocket open>
+				<plastic-card slot="pocket">
+					<div slot="card-front" id="credit-card"></div>
+				</plastic-card>
+			</card-pocket>
+			<card-pocket non-interactive>
+				<plastic-card slot="pocket">
+					<div slot="card-front" id="credit-card"></div>
+				</plastic-card>
+			</card-pocket>
+		</div>
 	</body>
 </html>

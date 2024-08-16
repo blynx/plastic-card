@@ -69,7 +69,7 @@ const style = `
 	}
 }
 
-:host(:hover) {
+:host(:not([open])[peek]:hover) {
 	& slot[name="pocket"] {
 		margin-bottom: -42%;
 		transition: margin-bottom 200ms ease-out;
@@ -94,23 +94,30 @@ const style = `
 
 export class CardPocket extends HTMLElement {
 	#shadow
+	interactive = true
 
 	constructor() {
 		super()
 		let styleSheet = new CSSStyleSheet()
 		styleSheet.replaceSync(style)
-
-		console.log(styleSheet.cssRules)
-
 		this.#shadow = this.attachShadow({ mode: "closed" })
 		this.#shadow.adoptedStyleSheets = [styleSheet]
 		this.#shadow.innerHTML = '<slot name="pocket"></slot><div id="pocket-lip">'
 	}
 
 	connectedCallback() {
-		this.addEventListener("click", () => {
+		this.interactive = !this.hasAttribute("non-interactive")
+		this.addEventListener("click", this.handleClick.bind(this))
+	}
+
+	disconnectedCallback() {
+		this.removeEventListener("click", this.handleClick.bind(this))
+	}
+
+	handleClick() {
+		if (this.interactive) {
 			this.toggleAttribute("open")
-		})
+		}
 	}
 }
 
